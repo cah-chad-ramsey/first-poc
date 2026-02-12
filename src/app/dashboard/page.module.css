@@ -12,6 +12,7 @@
     padding: 1.5rem;
     height: 100%;
     overflow: hidden;
+    /* We'll let the child components handle internal scrolling */
     display: flex;
     flex-direction: column;
 }
