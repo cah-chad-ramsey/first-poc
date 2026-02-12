@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Requirement Extractor POC
+
+This is a proof-of-concept for an AI-powered meeting transcript analyzer that extracts and categorizes software requirements into **Epics**, **Stories**, and **Features**.
+
+## Project Structure
+
+- `/` - Next.js Frontend (TypeScript, CSS Modules)
+- `/backend` - Spring Boot Backend (Java 17, Maven)
+
+## Prerequisites
+
+- **Node.js**: v20 or higher
+- **Java**: Java 17 or higher
+- **Maven**: (Embedded in backend wrapper)
 
 ## Getting Started
 
-First, run the development server:
+### 1. Run the Backend
+
+Navigate to the `backend` directory and start the Spring Boot application:
 
 ```bash
+cd backend
+./start.sh
+```
+
+The backend runs on [http://localhost:8080](http://localhost:8080).
+
+### 2. Run the Frontend
+
+In the root directory, install dependencies and start the development server:
+
+```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **File Upload**: Upload transcripts (text/markdown) for AI analysis.
+- **Demo Mode**: Instant access to a pre-populated dashboard with a complex requirement hierarchy (**Epic -> Story -> Feature**).
+- **Hierarchical View**: Clean, indented visualization of requirement relationships.
+- **Transcript Viewer**: Side-by-side view of the original source text and extracted data.
 
-## Learn More
+## Deployment Note
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The project is configured for local network development. The frontend dynamically resolves the backend URL based on the current hostname to facilitate sharing within a private network (pending local firewall exceptions).
