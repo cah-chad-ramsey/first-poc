@@ -29,7 +29,10 @@ export default function FileUploader() {
             // In a real app, show loading state here
             console.log("Uploading...", fileToUpload.name);
 
-            const response = await fetch('http://localhost:8080/api/analyze', {
+            // Dynamic URL based on current hostname
+            const backendUrl = `http://${window.location.hostname}:8080/api/analyze`;
+
+            const response = await fetch(backendUrl, {
                 method: 'POST',
                 body: formData,
             });

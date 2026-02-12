@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "http://localhost:3000") // Allow Next.js frontend
+@CrossOrigin(origins = "*") // Allow access from any origin on the network for POC
 public class AnalysisController {
 
     private final GeminiService geminiService;
