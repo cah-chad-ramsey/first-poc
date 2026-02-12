@@ -35,13 +35,14 @@ public class AnalysisController {
             // multimodal supported later.
             // Currently implementing text-based transcript upload.
 
-            String content = new BufferedReader(
-                    new InputStreamReader(file.getInputStream(), StandardCharsets.UTF_8))
-                    .lines()
-                    .collect(Collectors.joining("\n"));
+            try (BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(file.getInputStream(), StandardCharsets.UTF_8))) {
+                String content = reader.lines()
+                        .collect(Collectors.joining("\n"));
 
-            AnalysisResponse response = geminiService.analyzeTranscript(content);
-            return ResponseEntity.ok(response);
+                AnalysisResponse response = geminiService.analyzeTranscript(content);
+                return ResponseEntity.ok(response);
+            }
 
         } catch (IOException e) {
             return ResponseEntity.internalServerError().build();
