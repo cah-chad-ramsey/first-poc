@@ -1,0 +1,28 @@
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    height: calc(100vh - 64px);
+    /* Full height minus header */
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.panel {
+    padding: 1.5rem;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 1024px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    .panel {
+        height: 600px;
+    }
+}

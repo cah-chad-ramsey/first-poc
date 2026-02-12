@@ -39,3 +39,19 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# GCP Credentials
+**/gcp-credentials.json
+backend/gcp-credentials.json
+
+# Java/Maven
+backend/target/
+backend/.mvn/
+backend/*.log
+.factorypath
+
+# VS Code
+.vscode/
+
+# Pencil
+pencil-welcome.pen
