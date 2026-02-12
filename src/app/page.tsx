@@ -1,4 +1,5 @@
 import FileUploader from '@/components/ui/FileUploader';
+import DemoBox from '@/components/ui/DemoBox';
 import styles from './page.module.css';
 
 export default function Home() {
@@ -15,6 +16,10 @@ export default function Home() {
 
       <div className={styles.uploadContainer}>
         <FileUploader />
+        <div className={styles.divider}>
+          <span className={styles.dividerText}>or</span>
+        </div>
+        <DemoBox />
       </div>
     </div>
   );
